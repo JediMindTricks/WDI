@@ -1,0 +1,3 @@
+WDI
+We are learning git control
+git add and commit
