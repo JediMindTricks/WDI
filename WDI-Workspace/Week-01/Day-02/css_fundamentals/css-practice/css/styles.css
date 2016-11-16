@@ -1,0 +1,35 @@
+h1 {
+	color: orange;
+	text-align: center;
+
+	/*Adding Drop Shadow */
+	text-shadow: 2px 2px red;
+	}
+
+p {
+	font-style: italic;
+	color: green;
+	font-weight: bold;
+	font-size: 20px;
+	}
+
+.orange {
+	color: orange;
+}
+
+.large {
+	font-size: 22px;
+}
+
+#trois {
+	font-size: 6px;
+}
+
+li, h1, p {
+font-weight: bold;
+text-decoration: underline;
+}
+
+ul a {
+	font-style: italic;
+}
