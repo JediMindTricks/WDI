@@ -1,0 +1,32 @@
+.box {
+	height: 100px;
+	width: 100px;
+	float: left;
+}
+
+
+#container {
+	height: 500px;
+	width: 500px;
+	background-color: grey;
+	position: relative;
+	left: 33%;
+	top: 125px;
+}
+
+#square-one {
+	background-color: red;
+	margin: 10px;
+
+}#square-two {
+	background-color: white;
+}
+
+#square-three {
+	background-color: blue;
+	clear: both;
+}
+
+#square-four {
+	background-color: green;
+}

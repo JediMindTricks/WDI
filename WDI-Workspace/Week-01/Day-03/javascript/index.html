@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="css/main.css"/>
+  <title>Guacamole</title>
+</head>
+<body>
+	<div id="canvas">
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"><img src="http://images.clipartpanda.com/mole-clip-art-mole.png" alt="mole" height="100px;"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+	</div>
+	<script>
+		// Selecting squares and assigning colors
+
+		var holes = document.querySelectorAll('.game-area');
+		holes[0].style.backgroundColor = "tomato"
+		holes[1].style.backgroundColor = "goldenrod"
+		holes[2].style.backgroundColor = "cadetblue"
+		holes[3].style.backgroundColor = "whitesmoke"
+		holes[4].style.backgroundColor = "springgreen"
+		holes[5].style.backgroundColor = "sienna"
+		holes[6].style.backgroundColor = "pink"
+		holes[7].style.backgroundColor = "navajowhite"
+		holes[8].style.backgroundColor = "mediumvioletred"
+
+		// Adding mole to each square 
+
+		holes[0].innerHTML = holes[4].innerHTML;
+		holes[1].innerHTML = holes[4].innerHTML;
+		holes[2].innerHTML = holes[4].innerHTML;
+		holes[3].innerHTML = holes[4].innerHTML;
+		holes[5].innerHTML = holes[4].innerHTML;
+		holes[6].innerHTML = holes[4].innerHTML;
+		holes[7].innerHTML = holes[4].innerHTML;
+		holes[8].innerHTML = holes[4].innerHTML;
+
+		var theTitle = document.createElement('h1');
+		document.body.appendChild(theTitle);
+		theTitle.innerText = "Guacamole";
+	</script>
+</body>
+</html>

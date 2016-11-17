@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="css/styles.css"/>
+  <title>Checkers</title>
+</head>
+<body>
+	<div id="canvas">
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"><img src="http://www.iconsdb.com/icons/download/black/circle-512.gif" alt="checker" height="100px;"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+		<div class="game-area"></div>
+	</div>
+	<script>
+		// Selecting squares and assigning colors
+
+		var square = document.querySelectorAll('.game-area');
+	
+
+		// Adding mole to each square 
+
+		square[0].innerHTML = square[4].innerHTML;
+		square[2].innerHTML = square[4].innerHTML;
+		square[5].innerHTML = square[4].innerHTML;
+		square[7].innerHTML = square[4].innerHTML;
+		square[8].innerHTML = square[4].innerHTML;
+		square[10].innerHTML = square[4].innerHTML;
+		square[13].innerHTML = square[4].innerHTML;
+		square[16].innerHTML = square[4].innerHTML;
+		square[18].innerHTML = square[4].innerHTML;
+		square[21].innerHTML = square[4].innerHTML;
+		square[23].innerHTML = square[4].innerHTML;
+
+		var theTitle = document.createElement('h1');
+		document.body.appendChild(theTitle);
+		theTitle.innerText = "Checkers";
+	</script>
+</body>
+</html>

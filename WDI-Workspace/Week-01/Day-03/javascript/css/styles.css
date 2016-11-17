@@ -1,0 +1,22 @@
+#canvas {
+	height: 840px;
+	width: 670px;
+	background-color: grey;
+	position: relative;
+	left: 33%;
+	top: 10px;
+}
+
+.game-area {
+	height: 164px;
+	width: 164px;
+	background: red;
+	display: inline-block;
+}
+
+img {
+	position: relative;
+	display: block;
+	top: 30px;
+	left: 10px;
+}
