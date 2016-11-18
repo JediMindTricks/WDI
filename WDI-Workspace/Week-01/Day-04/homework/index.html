@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  <title>JS Checkerboard</title>
+  <style>
+  	.square {
+  		height: 100px;
+		width: 100px;
+		background: red;
+		display: inline-block;
+  	}
+
+  	#canvas {
+		height: 800px;
+		width: 800px;
+		background-color: grey;
+		position: relative;
+}
+
+
+
+  </style>
+</head>
+<body>
+	<div id="canvas">
+	</div>
+	<script>
+		var squares = 64;
+		// var square = document
+		while(i < squares) {
+			var square = document.createElement('div');
+			square.selectAttribute('class', '.square');
+			square[i].appendChild(square);
+			i = i + 1;
+		}
+
+		
+
+
+	</script>
+</body>
+</html>
