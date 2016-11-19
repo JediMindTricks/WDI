@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  <title>Loopy</title>
+  <style>
+  	.rusty {
+  		background-color: orange;
+  	}
+  </style>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/javascript">
+
+		var myContainer = document.getElementById('container');
+		var myP = document.createElement('p');
+		myP.innerText = 'yellow';
+		myContainer.appendChild(myP);
+
+		//creating h2 tag
+		var myContainer = document.getElementById('container');
+		var myH2 = document.createElement('h2');
+		myH2.innerText = 'Hello there';
+		myContainer.appendChild(myH2);
+
+		myH2.classList.add('rusty');
+
+		//Declare count variable
+		var count = 0;
+		while (count < 11) {
+			console.log(count);
+			count = count + 2;
+		}
+
+		for (var i = 0; i < 11; i+=2) {
+			console.log(i);
+		}
+
+		for (var j = 0; j < 10; j+=3) {
+			console.log(j);
+		}
+	</script>
+</body>
+</html>
