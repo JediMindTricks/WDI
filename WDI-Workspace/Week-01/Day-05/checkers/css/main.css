@@ -1,0 +1,16 @@
+#canvas {
+
+}
+
+.tile {
+	width: 100px;
+	height: 100px;
+}
+
+.dark {
+	background: black;
+}
+
+.light {
+	background: red;
+}
