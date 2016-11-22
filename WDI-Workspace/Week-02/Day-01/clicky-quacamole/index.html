@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Guacamole</title>
+   <style media="screen">
+     .hole{
+       display: inline-block;
+       border: 1px solid black;
+       width: 100px;
+       height: 100px;
+       vertical-align: top;
+     }
+     img{
+       width: 90px;
+     }
+     .container{width: 330px;}
+   </style>
+ </head>
+ <body>
+   <div class="container">
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"><img id="mole" src="img/mole.png" alt="" /></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+   </div>
+   <script type="text/javascript">
+     function clap() {console.log("I'm clapping")};
+     var holes = document.querySelectorAll('.hole');
+
+     //Created a loop to check through all the holes
+     for (var i = 0; i < holes.length; i++) {
+          holes[i].addEventListener('click', checkEmpty);
+     }
+
+
+     //Created function to check if HTML content is the mole inside square
+     function checkEmpty(){
+      console.log(this.innerHTML != "");
+      if (this.innerHTML) {
+        console.log("Hello")
+        var x = Math.floor(Math.random()*9);
+        //insert mole into random hole
+         holes[x].innerHTML = this.innerHTML;
+         this.innerHTML = "";
+
+        // holes[Math.floor(Math.random() * 9)].innerHTML = document.getElementById('#mole');
+        }
+    }
+
+
+
+
+
+
+
+
+
+   </script>
+ </body>
+</html>
