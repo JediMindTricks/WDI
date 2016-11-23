@@ -1,0 +1,106 @@
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Guacamole</title>
+   <style media="screen">
+     .hole{
+       display: inline-block;
+       border: 1px solid black;
+       width: 100px;
+       height: 100px;
+       vertical-align: top;
+     }
+     img{
+       width: 90px;
+     }
+     .container{width: 330px;}
+
+   </style>
+ </head>
+ <body>
+   <div class="container">
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"><img src="img/mole.png" alt="" /></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+   </div>
+    <h1 id="problems">99</h1>
+    <h2 id="score">Score: 0</h2>
+    <button id="fire">Start Game</button>
+    <button id="stop">Stop Game</button>
+   <script type="text/javascript">
+
+   // Create Mole logic
+     var holes = document.querySelectorAll('.hole');
+     var score = 0;
+     function randomInt(upto) {
+        return Math.floor(Math.random()* upto);
+     }
+
+      //Get score
+      function getScore(score) {
+        var scoreUpdate = document.getElementById('score');
+        scoreUpdate.innerText = "Score: " + score;
+      }
+
+     function checkMole(){
+       if (!(this.innerHTML === "")){
+         console.log('Mole here');
+         this.innerHTML = "";
+         holes[randomInt(9)].innerHTML = '<img src="img/mole.png" alt="" />';
+         score = score + 1;
+         console.log(score);
+         getScore(score);
+       }
+     }
+
+     holes[0].addEventListener('click', checkMole);
+     holes[1].addEventListener('click', checkMole);
+     holes[2].addEventListener('click', checkMole);
+     holes[3].addEventListener('click', checkMole);
+     holes[4].addEventListener('click', checkMole);
+     holes[5].addEventListener('click', checkMole);
+     holes[6].addEventListener('click', checkMole);
+     holes[7].addEventListener('click', checkMole);
+     holes[8].addEventListener('click', checkMole);
+
+     // Add button timer
+      var theH1 = document.getElementById('problems');
+      var theButton = document.getElementById('fire');
+      var theStop = document.getElementById('stop');
+
+
+      var numProblems = 99;
+
+      function solveOne(){
+        if (numProblems > 0) {
+          numProblems = numProblems - 1
+          console.log("I have " + numProblems + " problems");
+          theH1.innerText = numProblems;
+        } else {
+          clearInterval(1);
+          alert("Game Over");
+        }
+        
+        return "game ended";
+      }
+
+      function startTimer(){
+        setInterval(solveOne, 1000);
+      }
+
+      function stopTimer() {
+        clearInterval(1);
+      }
+
+      theButton.addEventListener('click',  startTimer);
+      theStop.addEventListener('click',  stopTimer);
+
+   </script>
+ </body>
+</html>

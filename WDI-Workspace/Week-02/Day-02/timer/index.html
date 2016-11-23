@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Timer</title>
+
+</head>
+<body>
+	<h1 id="the-time">50</h1>
+	<button id="start">Start</button>
+	<button id="stop">Stop</button>
+	<script>
+		// Create variable to get time in element
+		var time = document.getElementById('the-time');
+
+		// Create a variable to grab the button
+		var start = document.getElementById('start');
+		var stop = document.getElementById('stop');
+
+		// Create function to countdown the time
+		function countdown() {
+			// Add condition to check if the time is more than 0
+			if (time.innerText > 0) {
+				// If more than 0 subtract 1 from the time
+				time.innerText = time.innerText - 1;
+				console.log("Number is: " + time.innerText);
+			} else {
+				// If time is less than 0 cancel code and display alert
+				clearTimeout(1);
+				alert("Countdown Complete");
+			}
+		}
+
+		// set the interval counter to call countdown function
+		function startTimer() {
+			setInterval(countdown, 1000);
+		}
+
+		function stopTimer() {
+			clearTimeout(1);
+		}
+
+		// Add event listener to the button so when clicked it will call the countdown function
+		start.addEventListener('click', startTimer);
+		stop.addEventListener('click', stopTimer);
+
+	</script>
+</body>
+</html>

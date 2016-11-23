@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>OOP Practice</title>
+</head>
+<body>
+	
+
+	<script>
+
+	// Circle
+	var circle= {
+		description: "A round thing with no sides.",
+		diameter: function(radius) {
+			return radius * 2;
+		},
+		area: function(radius) {
+			return Math.PI * (radius * radius);
+		}
+	}
+
+	var square = {
+		description: "A four-sided edgy thing.",
+		area: function(width, height) {
+			return width * height;
+		}
+	}
+
+	var person = {
+		name: "Michael",
+		greet: function() {
+			return "Hi, my name is " + this.name;
+		},
+		meditate: function() {
+			return this;
+		}
+	}
+
+	function Person(name, email) {
+		this.name = name
+		this.email = email
+		this.id = Math.random() * 100000000;
+		this.greet = function() {
+			return "Hello " + this.name + "!";
+		}
+	}
+
+	var users = [];
+	users.push(new Person("Philippe", "Phil@mail.com"));
+	users.push(new Person("Mike", "Mike@mail.com"));
+	users.push(new Person("Matt", "Matt@mail.com"));
+
+	for (var i = 0; i < users.length; i++) {
+		console.log(users[i].name);
+		document.body.innerHTML += "<h1>" + users[i].name; + "</h1>";
+
+	}
+	</script>
+</body>
+</html>

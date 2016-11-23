@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  <title></title>
+</head>
+<body>
+	<script>
+		var board = document.querySelectorAll('#board');
+		var squares = document.querySelectorAll('.square');
+		var blackSquares = document.querySelectorAll('.square.black');
+		//Create array to store objects
+		var checkerPiece = [];
+
+		// Create constructor
+		function Piece(color, targetSquare) {
+			this.src = './img' + color + '.png';
+			this.class = 'piece' + color;
+
+			// Creating the HTML node and add img
+			this.node = document.createElement('img');
+			// Set node attributes
+			this.node.setAttribute('src', this.src);
+			this.node.setAttribute('class', this.class);
+			// Place the new node in particular square
+			targetSquare.appendChild(this.node);
+
+		}
+
+		//Loop to add pieces to board 
+		for (var i = 0; i < 12; i++) {
+			new Piece('black', blackSquares[i]);
+		}
+
+		//Loop to add the pieces to the bottom of the board
+		for (var i = blackSquares.length - 1; i > 19; i--) {
+			new Piece('red', blackSquares[i]);
+		}
+	</script>
+</body>
+</html>

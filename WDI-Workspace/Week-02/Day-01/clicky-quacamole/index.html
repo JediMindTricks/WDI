@@ -28,7 +28,10 @@
      <div class="hole"></div>
      <div class="hole"></div>
      <div class="hole"></div>
+     <h1 id="problems">99</h1>
+    <button id="fire">Start Timer</button>
    </div>
+
    <script type="text/javascript">
      function clap() {console.log("I'm clapping")};
      var holes = document.querySelectorAll('.hole');
@@ -48,8 +51,6 @@
         //insert mole into random hole
          holes[x].innerHTML = this.innerHTML;
          this.innerHTML = "";
-
-        // holes[Math.floor(Math.random() * 9)].innerHTML = document.getElementById('#mole');
         }
     }
 
