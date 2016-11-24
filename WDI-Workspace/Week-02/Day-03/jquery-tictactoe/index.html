@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <title>jQuery Tic Tac Toe</title>
+  <style>
+  		#container {
+			height: 330px;
+			width: 330px;
+			background: grey;
+  		}
+
+  		.tile {
+  			height: 100px;
+  			width: 100px;
+  			display: inline-block;
+  			text-align: center;
+  			vertical-align: top;
+  		}
+  </style>
+</head>
+<body>
+	<div id="container">
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+	</div>
+	<script>
+		$('.tile').css({
+			background: 'red',
+		})
+
+		$('.tile').css({background: 'lime'})
+
+		$('.tile').css({border: '2px dashed blue', borderRadius: '50%'});
+		
+		$('.tile').hide('slow');
+		$('.tile').show('slow');
+
+		// Create player variable
+		var currentPlayer = 0;
+		var players = [{symbol: 'x', color: 'yellow'},
+					  {symbol: 'o', color: 'tomato'}]
+
+		$('.tile').on('click', function(e){
+			// set the innerText of tile to the player1 symbol
+			$(this).text(players[currentPlayer].symbol)
+			$(this).css({background: players[currentPlayer].color})
+			$(this).attr('id')
+			//Create a toggle between the 2 players
+			if (currentPlayer == 0) {
+				currentPlayer = 1;
+			} else {
+				currentPlayer = 0;
+			}
+			// Turn off the event listener for the function
+			$(this).off();
+		})
+
+		// Create a function to check if a color has 3 in a row. 
+		// use if conditon for if (tile 1 && tile 2 && tile 3 == players[currentPlayer].color) {console.log( current player won )} then do the same for each way a player can win. You need to  know the tile positions
+
+
+	</script>
+</body>
+</html>

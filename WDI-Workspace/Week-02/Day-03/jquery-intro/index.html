@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Intro</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <style>
+  	h1 {
+  		display: none;
+  	}
+  </style>
+</head>
+<body>
+	<button>Make Box!</button>
+	<script>
+
+	// Box constructor
+	function Box() {
+			// Use jQuery to create a div and auto give it properties
+			var $newBox = $('<div>').css({
+				height: randomInt(20, 100),
+				width: randomInt(20, 100),
+				position: 'absolute',
+				background: randomColor()
+			})
+
+			$('body').append($newBox);
+			// Called newBox and then gave it an animate method
+			$newBox.animate({
+				top: randomInt(10, $(window).height()),
+				left: randomInt(10, $(window).width())
+			}, 2000, moveBox)
+		}
+		// Create function to animate boxes once created forever
+		function moveBox() {
+			$(this).animate({
+				top: randomInt(10, $(window).height()),
+				left: randomInt(10, $(window).width())
+			}, 2000, moveBox)
+		}
+
+
+	// 	button
+	// 	event listener on button
+		$('button').click(function(){
+			console.log("Button got clicked!");
+			new Box();
+		})
+
+		// 	function to generate random number
+		function randomInt(min, max) {
+			return Math.round((Math.random() * (max - min)) + min);
+		}
+		// 	function for random color
+
+		function randomColor() {
+			var options = ['A', 'B', 'C', 'D', 'E', 'F', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+			var result = '#';
+
+			// Loop through array 6 times to get a random character then append and return result
+			for (var i = 0; i < 6; i++) {
+				result += options[randomInt(0, (options.length - 1))];
+			}
+
+			return result;
+		}
+		// 	minimize a box
+
+		
+
+		
+
+
+
+	</script>
+</body>
+</html>
