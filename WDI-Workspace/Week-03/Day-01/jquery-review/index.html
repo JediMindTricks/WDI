@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Practice Review</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <style>
+  	
+  </style>
+</head>
+<body>
+	<button>Add New Item</button>
+	<ul>
+		<li>Snap</li>
+		<li>Crackle</li>
+		<li>Pop</li>
+		<li>Boom</li>
+	</ul>
+	<script>
+	
+		$('ul').on('click', 'li',logSelf)
+
+		$('button').on('click', function(){
+			$('ul').append('<li>Brand New</li>');
+		})
+
+		function logSelf (){
+			console.log(this);
+		}
+
+	</script>
+</body>
+</html>

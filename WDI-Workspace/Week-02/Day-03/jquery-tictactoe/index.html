@@ -63,12 +63,34 @@
 			} else {
 				currentPlayer = 0;
 			}
+
+			var tileOne = $('.tile')[6];
+			var tileTwo = $('.tile')[4];
+			var tileThree = $('.tile')[2];
+
+
+			if (tileOne && tileTwo && tileThree == players[currentPlayer].color) {
+    			return console.log("Tomato has won");
+			}
 			// Turn off the event listener for the function
 			$(this).off();
 		})
 
 		// Create a function to check if a color has 3 in a row. 
 		// use if conditon for if (tile 1 && tile 2 && tile 3 == players[currentPlayer].color) {console.log( current player won )} then do the same for each way a player can win. You need to  know the tile positions
+		function checkPlayerWin(){
+			// Create variable for tiles
+			var tileOne = $('.tile')[6];
+			var tileTwo = $('.tile')[4];
+			var tileThree = $('.tile')[2];
+
+
+			if (tileOne && tileTwo && tileThree == players[currentPlayer].color) {
+    			return console.log("Tomato has won");
+			}
+		}
+
+		$('.tile').on('click', checkPlayerWin)
 
 
 	</script>
