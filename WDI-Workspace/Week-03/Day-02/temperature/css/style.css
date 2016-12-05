@@ -1,0 +1,64 @@
+#container {
+}
+
+
+
+#title {
+	font-weight: bold;
+	font-size: 40px;
+	position: absolute;
+  	top: 30%;
+  	left: 38%;
+}
+
+.result {
+	position: relative;
+	margin-top: 28%;
+	left: 43%;
+	margin: 0;
+}
+
+button {
+	position: relative;
+	left: 2%;
+	margin-top: 10px;
+	padding: 5px;
+	background-color: blue;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	border: none;
+}
+
+hr {
+	position: relative;
+	border-top: dotted 1px;
+	margin-top: 23%;
+	width: 400px;
+	left: -2%;
+
+}
+
+body {
+	margin: 0;
+}
+
+.currentTemp {
+	font-weight: bold;
+	font-size: 40px;
+	position: relative;
+	left: 2%;
+}
+
+.form {
+	padding-top: 10px;
+}
+
+input {
+	width: 50px;
+	padding: 10px;
+	left: 1.8%;
+	position: relative;
+}
+
+

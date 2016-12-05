@@ -1,0 +1,152 @@
+body {
+	background: #290628;
+}
+
+#game-board {
+	height: 600px;
+	width: 800px;
+	background: #3B0086;
+	position: relative;
+	left: 22%;
+	margin-top: 5%;
+	border: 5px solid #EA7AF4;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3em;
+	font-family: helvetica;
+	position: relative;
+	top: 15px;
+	color: white;
+}
+
+.rectangle {
+	background: #B43E8F;
+	height: 200px;
+	width: 590px;
+	position: relative;
+	top: 5%;
+	left: 13%;
+}
+
+.questions {
+	left: 5%;
+	position: relative;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	font-family: helvetica;
+	top: 39%;
+	width: 557px;
+}
+
+.timerbox {
+	height: 50px;
+	width: 120px;
+	background-color: purple;
+	float: left;
+	display: inline-block;
+	clear: both;
+	background-color: #6200B3;
+	position: relative;
+	left: 20px;
+}
+
+.time {
+	text-align: center;
+	position: relative;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	font-family: helvetica;
+	top: -10%;
+}
+
+.currentScore {
+	height: 50px;
+	width: 120px;
+	background-color: purple;
+	display: inline-block;
+	float: right;
+	clear: right: auto;
+	background-color: #6200B3;
+	position: relative;
+	right: 20px;
+}
+
+.score {
+	text-align: center;
+	position: relative;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	font-family: helvetica;
+	top: -10%;
+}
+
+.answers {
+	position: relative;
+	margin-top: 30px;
+	top: 2%;
+	left: 15%;
+	margin-right: 140px;
+}
+
+button {
+  background: #06A77D;
+  background-image: linear-gradient(to bottom, #06A77D, #2980b9);
+  border-radius: 28px;
+  font-family: helvetica;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 30px 10px 30px;
+  border: solid #1f628d 2px;
+  text-decoration: none;
+  margin: 10px;
+}
+
+button:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #06A77D);
+  text-decoration: none;
+}
+
+
+video {
+	position: fixed; 
+	top: 0; 
+	width: 100vw; 
+	height: 100vh; 
+	z-index: -1;
+}
+
+.start {
+	position: relative;
+	left: 23%;
+}
+
+.playerBoard {
+	height: 100px;
+	width: 170px;
+	background: #3B0086;
+	position: relative;
+	top: 200px;
+	clear: both;
+	margin-top: -96px;
+    left: 50px;
+    font-family: helvetica;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 50px;
+    border: 5px solid #EA7AF4;
+}
+
+
+
+
+
+
+

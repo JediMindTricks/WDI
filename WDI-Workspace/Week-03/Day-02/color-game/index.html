@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  <title>Color Memory</title>
+  <style>
+  	.container {
+  		width: auto;
+  		height: auto;
+  		text-align: center;
+  	}
+
+  	.rectangle {
+  		width: 200px;
+  		height: 100px;
+  		background-color: green;
+  		margin-top: 10%;
+  	}
+
+  	.upper {
+  		position: relative;
+  		left: 42%;
+  	}
+
+  	.lower {
+  		position: relative;
+  		margin-top: 15%;
+  	}
+
+  	button {
+  		padding: 50px;
+  	}
+
+  	.purple {
+		color: purple;
+		font-weight: bold; 
+		font-size: 18px;
+  	}
+
+  	.green {
+		color: green;
+		font-weight: bold; 
+		font-size: 18px;
+  	}
+
+  	.orange {
+		color: orange;
+		font-weight: bold; 
+		font-size: 18px;
+  	}
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="upper">
+			<!-- color of rectangle -->
+			<div class="rectangle"></div>
+		</div>
+		<div class="lower">
+			<!-- 3 buttons -->
+			<button class="orange">Purple</button>
+			<button class="purple">Green</button>
+			<button class="green">Orange</button>
+		</div>
+	</div>
+
+	<script>
+		$('button').on('click', function(){
+			
+		})
+	</script>
+</body>
+</html>

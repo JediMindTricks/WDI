@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="css/style.css"/>
+  	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <title>Black Jeopardy</title>
+</head>
+<body>
+
+	<div class="playerBoard">
+		Player 1: <span id="playerOne"></span><br><br>
+		Player 2: <span id="playerTwo"></span>
+	</div>
+	<div id="game-board">
+		<h1>Black Jeopardy</h1>
+		<button class="start">Start Game</button>
+		<div class="timerbox">
+			<p class="time">Time: <span id="seconds">10</span></p>
+		</div>
+		<div class="currentScore">
+			<p class="score">Score: <span id="points"></span>/12</p>
+		</div>
+		<div class="rectangle">
+			<p class="questions">Welcome to Black Jeopardy.
+								 Test your knowledge, answer the following questions correctly.</p>
+		</div>
+		<div class="answers">
+			<button class="button" id="btn1">A</button>
+			<button class="button" id="btn2">B</button>
+			<button class="button" id="btn3">C</button>
+			<button class="button" id="btn4">D</button>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+</html>
