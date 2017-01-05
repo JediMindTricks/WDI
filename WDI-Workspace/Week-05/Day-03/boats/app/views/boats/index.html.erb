@@ -1,0 +1,17 @@
+<h1>Boats and hoes!!!</h1>
+
+<ul>
+	<% @boats.each do |boat| %>
+		<li>Name of Boat: <%= boat.title %> 
+		<%= link_to('Check out boat', boat_path(boat)) %>
+		<button style="text-decoration: none;"><%= link_to('X', burn_it_path(boat), method: :delete) %></button>
+		</li>
+	<% end %>
+</ul>
+
+
+
+
+
+
+

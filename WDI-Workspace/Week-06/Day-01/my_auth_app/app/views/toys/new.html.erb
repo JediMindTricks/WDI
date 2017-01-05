@@ -1,0 +1,5 @@
+<%= form_for @toys do |a| %>
+	Name: <% a.text_field :name %>
+	Email: <% a.text_field :email %>
+	<%= a.submit "Save Toy" %>
+<% end %>

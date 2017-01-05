@@ -12,8 +12,8 @@ var score = 0;
 var timer;
 // Create global Var for currentPlayer
 var currentPlayer = 0;
-
-
+// Keep track of which question we are on
+var currentQuestion = 0;
 
 // Create countdown function
 function countdown() {
@@ -33,12 +33,18 @@ function countdown() {
         clearInterval(timer);
 		// Alert player that game is over
         alert('Game Over! Times Up! Your Score: ' + score);
-        $('#seconds').text('10');
+        // Resets the timer
+        $('#seconds').text('30');
+        // Checks current player
         if (currentPlayer == 0) {
+        	// If player 1 set score and reset timer
         	$('#points').text('0');
         	$('#playerOne').text(score)
+        	// changes questions to restart
         	currentQuestion = 0;
+        	// Clears score variable
         	score = 0;
+        	// Update player info
         	currentPlayer++
         } else if (currentPlayer == 1) {
         	$('#playerTwo').text(score);
@@ -55,11 +61,7 @@ function start() {
 // Place event listener on start btn
 $('.start').on('click', start);
 
-
-
 // As a user I want to keep track of the number of questions I got right
-
-
 
 // ********QUESTIONS*********
 // As a user I want to see the question displayed and 
@@ -108,9 +110,6 @@ var quiz = {answer0: "7 o'clock on the dot",
 				 answer12: "Incomplete!"
 				}
 
-
-
-
 // Create function that will insert the first question on start button clicked
 
 function displayQuestion() {
@@ -133,16 +132,11 @@ $('.start').on('click', fillAnswerButtons)
 		}
 
   function fillAnswerButtons() {
-
         	$('#btn1').text(answers[currentQuestion + 0]);
-        	$('#btn2').text(answers[randomInt(0, 12)]);
+        	$('#btn2').text(answers[randomInt(0, 11)]);
         	$('#btn3').text(answers[currentQuestion + 1]);
-        	$('#btn4').text(answers[randomInt(0, 12)]);
-        	
-        
+        	$('#btn4').text(answers[randomInt(0, 11)]);    
 }
-		
-
 
 // Adding 4 event listeners
 
@@ -164,26 +158,5 @@ function buttonLogic() {
 		console.log("You was wrong!");
 	}
 }
-
-// Build function to keep track of which question we are on
-var currentQuestion = 0;
 // Var to give some variety
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
