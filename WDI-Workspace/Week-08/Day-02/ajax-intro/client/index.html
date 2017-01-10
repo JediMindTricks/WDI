@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <title>Books app</title>
+  </head>
+  <body>
+    <h1>Library App</h1>
+    
+    <input type="text" name="title" value="" placeholder="Title" class="title"> 
+    <input type="text" name="author" value="" placeholder="Author" class="author">
+    <button id="create">create book</button>
+
+    <button id="load-books">Load'em books</button>
+    <ul id="books-list">
+
+    </ul>
+    <script type="text/javascript">
+      // Create a variable for the load books button
+      var loadBooks = $('#load-books');
+      // Create a variable for the list of books
+      var booksListUl = $('#books-list');
+      // Create a variable for the create book button
+      var createButton = $('#create');
+
+      // Varibale to store input values
+      var title = $('.title').value
+      var author = $('.author').value
+
+      // Create an event listenter for click
+      loadBooks.on('click', function() {
+      	// Print a test to make sure button was clicked to console
+        console.log('Let us load all them books');
+        // Create a var for a ajax 'get' request
+        var requestConfig = {url: '/books', method: 'get'};
+        // Call ajax and pass in the request
+        $.ajax(requestConfig).done(function(dataThatCameback){
+          // Once request is made print that object data to console
+          console.log(dataThatCameback);
+          // For each item that cameback do the following
+          dataThatCameback.forEach(function(b){
+          	// Create var that holds a list item with the span of book-id of the book
+            var bookLi = $('<li>' + '<span class="book-id">' + b._id + '</span>' + '</li>');
+            // Create a var that holds a delete button
+            var deleteBookButton = $('<button class="delete-book">Delete</button>');
+            // Once clicked on the delete button do the following
+            deleteBookButton.on('click', function(){
+              // Log the parent of this button to the console
+              console.log( $(this).parent().find('.book-id').text() ) ;
+              // Store the parent of the book id clicked on
+              var theLi = $(this).parent();
+              // Store the id of the book we want to delete
+              var bookToBeDeletedId = $(this).parent().find('.book-id').text();
+
+              // Store delete request to variable
+              var requestConfig = {url: '/books/'+ bookToBeDeletedId, method: 'delete'};
+              // Run ajax and pass in delete request
+              $.ajax(requestConfig).done(function(dataThatCameback){
+              	// Once done print that book id to the console that was deleted
+                console.log(dataThatCameback);
+                // Remove the list item from the unordered list
+                theLi.remove();
+              });
+
+            });
+            // Add the delete button to the end of the book id
+            bookLi.append(deleteBookButton);
+            // Add the book id's to the unordered list
+            booksListUl.append(bookLi);
+          });
+        });
+      });
+
+      createButton.on('click',function() {
+      	console.log("Creating some books!")
+      	var createNewBook = {url: '/books/', method: 'post', data: JSON.stringify({name: title, author: author}), contentType: 'application/json'}
+
+      	$.ajax(createNewBook).done(function(dataThatCameback) {
+      		console.log(dataThatCameback)
+
+      	})
+      })
+
+
+    </script>
+  </body>
+</html>
