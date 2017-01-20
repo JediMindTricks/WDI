@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+  	<script src="/socket.io/socket.io.js"></script>
+  <title>Drawing App</title>
+</head>
+<body>
+	<h1>Welcome to Live Drawing</h1>
+	<p></p>
+	<script>
+	var socket = io()
+
+		function setup() {
+			createCanvas(800, 400)
+			background('red')
+		}
+
+		function draw() {
+			// body...
+		}
+
+		function mouseDragged() {
+			rect(mouseX, mouseY, 10, 10)
+		}
+
+		socket.on('change-color', (colour)=> {
+			background(colour)
+		})
+
+	</script>
+</body>
+</html>

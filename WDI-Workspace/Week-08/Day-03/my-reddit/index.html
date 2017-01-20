@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  	<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+  <title></title>
+</head>
+<body>
+	<h1>Reddit API App</h1>
+	<p>Load stuff</p>
+	<button id="load-button">Begin</button>
+	<div class="container">
+		<div class="reddit">
+			<ul class="routes">
+				
+			</ul>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+	$('#load-button').on('click', () => {
+		var urlReq = "http://api.metro.net/agencies/lametro/routes/720/vehicles/"
+		$.ajax({url: urlReq, method: 'get'}).done((data)=> {
+			var routeLi = $('<li>' + route.display_name + '</li>')
+			$('.routes').append(routeLi);
+
+		})
+	})
+	</script>
+</body>
+</html>
+
+<!-- http://api.metro.net/agencies/lametro/routes/ -->

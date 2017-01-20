@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="todo.css"/>
+  	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <title>TODO</title>
+</head>
+<body>
+	<div class="todoapp">
+      <h1>todos</h1>
+      <input id="new-todo" class="new-todo" type="text" placeholder="what needs to be done">
+      <ul id="items-list" class="todo-list">
+      </ul>
+    </div>
+    <script type="text/javascript">
+    ///////////////////// View //////////////////
+      var $itemsListUl = $('#items-list')
+      var $newTodoInput = $('#new-todo')
+
+      // var items = [{task: 'survive', completed: true},
+      //              {task: 'eat', completed: false}
+      //             ]
+
+      // updateListView($itemsListUl, items)
+
+      $.ajax({
+        url: '/api/todos', method: 'get'
+      }).done(function(todos) {
+        items = todos
+        updateListView($itemsListUl, items)
+      })
+
+    ///////////////////// View //////////////////
+      function updateListView(ul, list){
+        ul.html('') //empty the ul contents
+        list.forEach(function (item){
+          ul.append(makeListItem(item))
+        })
+      }
+
+      $newTodoInput.on('keyup', function(evt) {
+        if (evt.keyCode == 13){
+          $.ajax({
+            url: '/api/todos', 
+            method: 'post',
+            contentType: 'application/json', 
+            data: JSON.stringify({task: $newTodoInput.val()})
+          }).done((data)=> {
+            if (data.success) {
+              var todoItem = createTodoItem( data.todo.task )
+              addTodoItemToList(todoItem, items)
+              updateListView($itemsListUl, items)
+              $newTodoInput.val('')
+            }
+          })
+        }
+      })
+
+      function makeListItem(obj) {
+        var listItem = $('<li>', {class: 'todo-item'})
+        var checkbox = createCheckbox(obj)
+        listItem.append(checkbox)
+        var label = $('<label>').text(obj.task)
+        listItem.append(label)
+        var deleteButton = createDeleteButton(obj)
+        listItem.append(deleteButton)
+
+        if (obj.completed == true){ // check if the item has been completed
+          listItem.addClass('completed')
+        }
+        return listItem
+      }
+
+      function createCheckbox(obj) {
+        var checkbox = $('<input>', {class: 'toggle', type: 'checkbox', checked: obj.completed})
+        checkbox.on('click', function(evt){
+          obj.completed = $(this).prop('checked')
+          updateListView($itemsListUl, items)
+        })
+        return checkbox
+      }
+
+      function createDeleteButton(obj) {
+        var button = $('<button>', {class: 'destroy'})
+        button.on('click', function(evt){
+          removeTodoItem(obj, items)
+          updateListView($itemsListUl, items)
+        })
+        return button
+      }
+
+  ///////////////////// Model //////////////////
+      function createTodoItem(obj){
+        item.task = str
+        return item
+      }
+
+      function addTodoItemToList(item, list) {
+        list.push(item)
+      }
+
+      function removeTodoItem(item, list) {
+        $.ajax({url: '/api/todos' + todoId, method: 'delete'}).done((data)=> {
+            itemIndex = list.findIndex(function(el){
+            return el === item
+            })
+            var deletedItem = list.splice(itemIndex, 1)[0]
+            return deletedItem
+        })       
+      }
+	</script>
+</body>
+</html>

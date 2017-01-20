@@ -74,7 +74,7 @@
 
       createButton.on('click',function() {
       	console.log("Creating some books!")
-      	var createNewBook = {url: '/books/', method: 'post', data: JSON.stringify({name: title, author: author}), contentType: 'application/json'}
+      	var createNewBook = {url: '/books/' + , method: 'post', data: JSON.stringify({name: title, author: author}), contentType: 'application/json'}
 
       	$.ajax(createNewBook).done(function(dataThatCameback) {
       		console.log(dataThatCameback)
