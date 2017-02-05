@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="FirstAngular">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/angular.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="wrapper" ng-controller="MainController as main">
+    <div class="container">
+      <h1>{{ main.title }}</h1>
+      <h3>{{ main.subtitle }}</h3>
+      <input type="text" ng-model="main.newFramework.name">
+      <button class="btn btn-primary" ng-click="main.addFramework()">Click Me</button>
+      <hr />
+
+      <ul>
+        <li ng-repeat="framework in main.frameworks">
+          <div ng-if="!framework.editing">
+          {{ framework.name }}
+          <button class="button button-clear" ng-click="main.deleteFramework(framework)">Delete</button>
+          <button ng-click="main.editFramework(framework)">Edit</button>
+          </div>
+
+          <div ng-if="framework.editing">
+          <input type="text" ng-model="framework.name">
+          <button class="button button-clear" ng-click="main.updateFramework(framework)">Update</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

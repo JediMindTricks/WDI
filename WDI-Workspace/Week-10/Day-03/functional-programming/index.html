@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<!-- <link rel="stylesheet" href="#"/> -->
+  <title></title>
+</head>
+<body>
+	<script>
+		function printIt(x) {
+			console.log(x)
+		}
+
+		function each(fn, arr) {
+			for (var i = 0; i < arr.length; i++) {
+				fn(arr[i])
+			}
+		}
+
+		function tripleIt(n) {
+			return 3 * n
+		}
+
+		function map(fn, arr) {
+			var result = []
+			for (var i = 0; i < arr.length; i++) {
+				fn(arr[i])
+				result.push(fn(arr[i]))
+			}
+
+			return result
+		}
+
+		function firstChar(str) {
+			// take the first char of strings in array and return the chars
+
+			return str.charAt(0)
+		}
+
+		function reduce(fn, arr, ac) {
+			var result = ac
+
+			for (var i = 0; i < arr.length; i++) {
+				result = fn(arr[i], ac)
+			}
+
+			return result
+		}
+
+		function isEven(n) {
+			return n % 2 == 0
+		}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js" charset="utf-8"></script>
+    <title>Books App</title>
+  </head>
+  <body ng-app="BooksApp">
+    <h1>Welcome to the books app</h1>
+
+    <div ng-controller="BooksController as bc">
+      {{ bc.message }}
+      <button type="button" ng-click="bc.populateBooks()">get them books</button>
+      <button type="button" ng-click="bc.createNewBook()">New Book</button>
+
+      <ul>
+        <li ng-repeat="book in bc.booksList">
+          {{book}}<button type="button" ng-click="bc.deleteBook(book)">x</button>
+        </li>
+      </ul>
+
+    </div>
+
+    <script type="text/javascript">
+      angular.module('BooksApp', [])
+      angular
+        .module('BooksApp')
+        .controller('BooksController', bcf)
+
+      bcf.$inject = ['$http']
+
+      function bcf($http){
+        var vm = this
+        vm.message = "The books arent allright"
+        vm.booksList = []
+        vm.populateBooks = function() {
+          $http({
+            method: 'get',
+            url: '/books'
+          }).then(function(resFromServer){
+            console.log(resFromServer.data)
+            vm.booksList = resFromServer.data
+          }, function(errFromServer){})
+        }
+
+        vm.deleteBook = function(libro) {
+          $http({method: 'delete', url: '/books/' + libro._id})
+            .then(function(resFromServer){
+              console.log(resFromServer);
+              vm.booksList = resFromServer.data
+            })
+        }
+
+        vm.createNewBook = function(){
+          $http.post('/books', {name: 'dude'})
+          .then(function(resFromServer){
+            console.log(resFromServer)
+          })
+        }
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  	<script src="angular.min.js" charset="utf8"></script>
+  <title></title>
+</head>
+<body ng-app>
+	<input type="text" ng-model="name" placeholder="name">
+	<input type="text" ng-model="country.name" placeholder="country">
+	{{ "My name is: " + name.charAt(0).toUpperCase() + name.slice(1) }}
+	{{"I am from: " + country.name.charAt(0).toUpperCase() + country.name.slice(1)}}
+</body>
+</html>

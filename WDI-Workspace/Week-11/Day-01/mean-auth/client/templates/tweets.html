@@ -1,0 +1,12 @@
+<h1>{{ tweetsCtrl.title }}</h1>
+
+This is a restricted view. Woohoo! You made it.
+
+<ul>
+	<li ng-repeat="tweet in tweetsCtrl.tweets">
+		{{tweet.body}}
+	</li>
+</ul>
+
+<input type="text" ng-model="tweetsCtrl.newTweet.body">
+<button ng-click="tweetsCtrl.handleSubmit()">Submit</button>

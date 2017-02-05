@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  <title>Promise</title>
+</head>
+<body>
+	<script>
+		function getImage() {
+			return new Promise((resolve, reject) => {
+				setTimeout(()=> {
+					// resolve()
+					reject('Could not get the image..')
+				}, 2000)
+			})
+		}
+
+		function analyze(image) {
+			console.log(image + " being analyzed..")
+			return new Promise((resolve, reject)=> {
+				setTimeout(()=> {
+				console.log("Boom, nice pic bro.")
+				// resolve({success: true, image: image, sentiment: "Angry"})
+				reject("There was an error analyzing the image.")
+				}, 2000)
+			})
+			
+		}
+
+		function respondToClient(data) {
+			setTimeout(()=> {
+				console.log(data)
+			}, 2000)
+		}
+
+		function handleError(err) {
+			console.log(err)
+		}
+
+		getImage()
+			.then(analyze)
+			.then(respondToClient)
+			.catch(handleError)
+	</script>
+</body>
+</html>

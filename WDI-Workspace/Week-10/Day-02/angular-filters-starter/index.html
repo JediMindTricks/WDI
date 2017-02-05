@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="GalaxyHub">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/angular.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/controllers/galaxies.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="wrapper" ng-controller="GalaxiesController as gc">
+    <div class="container">
+      <header class="text-center">
+        <h1>The Galaxy Hub</h1>
+        <hr />
+      </header>
+      Sort By:
+      <select ng-model="galaxyOrder">
+        <option value="name">Name</option>
+        <option value="distance">Distance</option>
+      </select>
+
+      Filter Search:
+      <input type="text" ng-model="filterSearch">
+
+      <section id="galaxies">
+        <article ng-repeat="galaxy in gc.galaxies | orderBy: galaxyOrder | filter: filterSearch | limitTo: 5">
+          <div class="row">
+
+            <div class="column">
+              <img ng-src="{{ galaxy.image_url }}" />
+              <button class="button button-clear" ng-click="galaxy.deleteGalaxy(galaxy)">Delete</button>
+            </div>
+
+            <div class="column column-75">
+              <h3>{{ galaxy.name | uppercase }}</h3>
+              <h4>Distance: {{ galaxy.distance | reachable }}</h4>
+              {{ galaxy.description }}
+            </div>
+            
+          </div>
+          <hr />
+        </article>
+      </section>
+    </div>
+  </body>
+</html>

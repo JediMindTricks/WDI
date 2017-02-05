@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.js"
+      integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+      crossorigin="anonymous"></script>
+    <script
+      src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+    .red-square {width: 100px; height: 100px; background: red;}
+    .yellow-square {width: 100px; height: 100px; background: yellow;}
+    .blue-square {}
+    .func {background: purple; width: 250px; border: 2px solid black; border-radius: 5px;}
+    .prettyFunc {font-family: helvetica; font-weight: bold; color: white; padding-right: 20px;}
+    .homie-panel {background: gold; width: 400px; height: 600px; clear: left; float: left; position: relative; border: 2px solid black; border-radius: 5px;}
+    .script-panel {background: grey; width: 400px; height: 600px; clear: right; float: right; position: relative; z-index: -1; border: 2px solid black; border-radius: 5px;}
+    .log {background: green; width: 250px; border: 2px solid black; border-radius: 5px; }
+    </style>
+    <title>Homie is in da house</title>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="homie-panel col-sm-4">
+        <div class="func">
+      <label for="" class="prettyFunc">Function</label>
+      <input type="text" placeholder="Args" class="form-control">
+    </div>
+    <div class="homie log">
+      <label for="">Log</label>
+      <input type="text" placeholder="string" class="form-control">
+    </div>
+      </div>
+      <div id="bucket" class="script-panel col-sm-8 blue-square">
+      </div>
+    </div>
+    
+  </div>
+    
+    <script type="text/javascript">
+    
+    $(".func").draggable({helper: "clone"});
+    $(".log").draggable({helper: "clone"});
+
+    $("#bucket").droppable({
+      drop: function(event, ui){
+        console.log(ui.helper);
+        var newHomie = ui.draggable.clone()
+        if (newHomie.hasClass('log')) {
+          console.log(newHomie.find('input').val())
+        }
+        if (newHomie.hasClass('func')) {
+          eval(newHomie.find('input').val())
+        }
+        newHomie.draggable()
+        $(this).css({'background': 'cyan'});
+        $(this).append(newHomie)
+      }
+    });
+    </script>
+  </body>
+</html>

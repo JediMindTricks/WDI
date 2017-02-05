@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <title></title>
+</head>
+<body>
+	<div class="container" style="height:200px; width: 30%; background: blue;">
+		<div style="padding-top: 50px;">
+			<h3 style="color: white;">Verify Credit Card Number</h3>
+			<input type="text" class="form-control" id="Txt">
+			<button class="btn btn-danger" id="btn">Submit</button>
+		</div>
+	</div>
+	<p></p>
+	<script>
+	var digits = document.getElementById("Txt").value;
+	digit = digits.toString()
+	
+
+	$('#btn').on('click', function(digits) {
+	    var numSum = 0;
+	    var value;
+	    for (var i = 0; i < 16; ++i) {
+	        if (i % 2 == 0) {
+	            value = 2 * digits[i];
+	            if (value >= 10) {
+	                value = (Math.floor(value / 10) + value % 10);
+	            }
+	        } else {
+	            value = +digits[i];
+	        }
+	        numSum += value;
+	    }
+	    return console.log((numSum % 10 == 0));
+	})
+
+    
+
+    
+	</script>
+</body>
+</html>

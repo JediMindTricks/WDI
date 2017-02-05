@@ -1,0 +1,15 @@
+.wrapper .container {
+    max-width: 80rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+img {
+  max-width:100%
+}
+
+hr {
+  border-top: 0.1rem solid rgba(158, 158, 158, 0.59);  
+}

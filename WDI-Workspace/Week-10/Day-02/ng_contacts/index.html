@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<link rel="stylesheet" href="#"/>
+  	<script src="angular.min.js" charset="utf8"></script>
+  <title></title>
+</head>
+<body ng-app="MyContactsApp">
+	<div ng-controller="ContactsController as cc">
+		<input type="text" ng-model="firstName" placeholder="contact name">
+		<input type="text" ng-model="number" placeholder="contact name">
+		{{ cc.welcome }}
+		<button ng-click="cc.addContact(firstName, number)">Add Contact</button>
+		{{ cc.contactsList }}
+	</div>
+
+	<div ng-repeat="contact in cc.contactsList">
+		{{ contact }}
+	</div>
+
+	<script type="text/javascript">
+		angular.module("MyContactsApp", []);
+
+		angular.module("MyContactsApp").controller("ContactsController", ccf);
+
+		function ccf() {
+			console.log("An instance got made")
+			this.welcome = "Welcome to the Jungle";
+			this.contactsList = [{name: 'justin', phone: '555-5555'},
+								{name: 'michael', phone: '555-5555'}]
+
+			this.addContact = function(name, number) {
+				this.contactsList.push({name: name, phone: number })
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  	<!-- <link rel="stylesheet" href="#"/> -->
+  <title></title>
+</head>
+<body>
+	<h1></h1>
+	<script type="text/javascript">
+		function factorial(n) {
+			if (n == 1) return 1
+			else return n * factorial(n-1)
+		}
+
+	console.log(factorial(3))
+
+	// take an array and give the first number in the array
+	function first(arr) {
+		return arr[0]
+	}
+
+	first([2,3,4,5])
+
+	// take an array and give the first 
+	function rest(arr) {
+		return arr.slice(1)
+	}
+
+	function tree(value) {
+		return {val: value, children: []}
+	}
+	</script>
+</body>
+</html>

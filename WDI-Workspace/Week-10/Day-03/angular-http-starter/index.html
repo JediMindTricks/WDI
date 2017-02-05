@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="WDIRoster">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/angular.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="directives/loading/loading.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body ng-controller="UsersController as uc">
+    <loading></loading>
+    <div class="container">
+      <div class="row">
+        <div class="column column-50 column-offset-25">
+          <header class="text-center">
+            <h1>🎉 GA Peeps 🎊</h1>
+          </header>
+
+          <div id="new-user-form">
+            <form ng-class="{active: uc.formOpen}">
+              <label>Name:</label>
+              <input ng-model="uc.newUser.name" type="text" />
+
+              <label>Email:</label>
+              <input ng-model="uc.newUser.email" type="text" />
+
+              <label>Avatar:</label>
+              <input ng-model="uc.newUser.avatar" type="text" />
+
+              <label>Bio:</label>
+              <textarea ng-model="uc.newUser.bio" type="text"></textarea>
+
+              <div class="text-center">
+                <button ng-click="uc.createUser()" ng-disable="uc.loading">Add User</button>
+                <button class="button-outline" ng-click="uc.cancelNewUser()">Cancel</button>
+              </div>
+            </form>
+            <button ng-if="!uc.formOpen" ng-click="uc.formOpen = true;">New User</button>
+          </div>
+
+          <hr />
+
+          <div id="users">
+            <div id="{{user._id}}" class="user" ng-repeat="user in uc.users | orderBy: 'name'">
+              
+              <div ng-if="!user.editing" class="row">
+                <div class="column">
+                  <img ng-src="{{user.avatar}}" />
+                </div>
+                <div class="column column-75">
+                  <h2>{{ user.name }}</h2>
+                  <p><em>{{ user.bio }}</em></p>
+                  <h5>{{ user.email }}</h5>
+                  <a ng-click="uc.editUser(user)" class="button-clear">Edit</a>
+                  <a ng-click="uc.deleteUser(user)" class="button-clear">Delete</a>
+                </div>
+              </div>
+
+              <form ng-class="{active: user.editing}">
+                <label>Name:</label>
+                <input ng-model="user.name" type="text" />
+
+                <label>Email:</label>
+                <input ng-model="user.email" type="text" />
+
+                <label>Avatar:</label>
+                <input ng-model="user.avatar" type="text" />
+
+                <label>Bio:</label>
+                <textarea ng-model="user.bio" type="text"></textarea>
+
+                <div class="text-center">
+                  <button ng-click="uc.updateUser(user)">Update User</button>
+                </div>
+              </form>
+
+              <hr />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

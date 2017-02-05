@@ -1,0 +1,36 @@
+<style>
+  #loading {
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    position: fixed;
+    background: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.25s
+  }
+
+  #loading.show {
+    visibility: visible;
+    opacity: 1
+  }
+
+  #loading.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #loading h3 {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<div id="loading" ng-class="{show: uc.loading, hide: !uc.loading}">
+  <img ng-src="/directives/loading/spinner.gif" />
+</div>
